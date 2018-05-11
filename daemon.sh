@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # change dir and run the daemon
-cd /home/pascal/PascalCoin_3.0.1_Ubuntu_16.04_64b_Binaries/
+cd /home/pascal/pascalcoin_bin
 ./pascalcoin_daemon -r
