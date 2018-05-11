@@ -20,9 +20,11 @@ The resulting version number of the openssl libcrypto lib.
 This is the simplest example:
 
 `docker build -t pascalcoin ./`
+
 `docker run -p 127.0.0.1:4003:4003 -p 127.0.0.1:4004:4004 -p 127.0.0.1:4009:4009 -i -t pascalcoin`
 
 Now with another branch as compile target for pascalcoin:
 
 `docker build --build-arg PASCAL_CHECKOUT=Releases/3.0.2 -t pascalcoin ./`
+
 `docker run -p 127.0.0.1:4003:4003 -p 127.0.0.1:4004:4004 -p 127.0.0.1:4009:4009 -i -t pascalcoin`
