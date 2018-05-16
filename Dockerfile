@@ -7,7 +7,7 @@ ARG CRYPRO_VERSION=1.1
 
 # install wget fpc lazarus and nano editor (debug)
 RUN  apt-get update \
-  && apt-get install -y wget nano fp-compiler lazarus git \
+  && apt-get install -y wget nano fp-compiler unzip lazarus git \
   && rm -rf /var/lib/apt/lists/*
 
 # add "pascal" user
@@ -53,7 +53,11 @@ WORKDIR /home/pascal
 
 # create data directory
 RUN mkdir /home/pascal/PascalCoin
+RUN mkdir /home/pascal/PascalCoin/Data
 RUN mkdir /home/pascal/PascalCoin_TESTNET
+
+RUN wget https://github.com/PascalCoin/PascalCoin/releases/download/2.1.9/BlockChainStream_196623.zip
+RUN unzip BlockChainStream_196623.zip -d /home/pascal/PascalCoin/Data
 
 USER root
 

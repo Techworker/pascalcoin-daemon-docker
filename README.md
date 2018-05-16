@@ -1,6 +1,6 @@
 # Docker container for the PascalCoin daemon
 
-This Dockerfile can be used to compile and run the pascalcoin daemon.
+This Dockerfile can be used to compile and run the pascalcoin daemon as a full node.
 
 The build includes 3 paramaters:
 
