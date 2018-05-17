@@ -53,11 +53,11 @@ WORKDIR /home/pascal
 
 # create data directory
 RUN mkdir /home/pascal/PascalCoin
-RUN mkdir /home/pascal/PascalCoin/Data
+#RUN mkdir /home/pascal/PascalCoin/Data
 RUN mkdir /home/pascal/PascalCoin_TESTNET
 
-RUN wget https://github.com/PascalCoin/PascalCoin/releases/download/2.1.9/BlockChainStream_196623.zip
-RUN unzip BlockChainStream_196623.zip -d /home/pascal/PascalCoin/Data
+#RUN wget https://github.com/PascalCoin/PascalCoin/releases/download/2.1.9/BlockChainStream_196623.zip
+#RUN unzip BlockChainStream_196623.zip -d /home/pascal/PascalCoin/Data
 
 USER root
 
