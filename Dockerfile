@@ -2,6 +2,7 @@ FROM ubuntu:latest
 MAINTAINER techworker
 
 ARG PASCAL_CHECKOUT=master
+ARG SPHERE10=false
 ARG OPENSSL_VERSION=1.1.0h
 ARG CRYPRO_VERSION=1.1
 
@@ -24,9 +25,15 @@ RUN mkdir pascalcoin_bin
 COPY daemon.sh /home/pascal/daemon.sh
 
 # clone pascalcoin
-RUN git clone https://github.com/PascalCoin/PascalCoin.git pascal_src
-WORKDIR /home/pascal/pascal_src/src
+RUN if [ ${SPHERE10} = true ]; then \
+    git clone https://github.com/Sphere10/PascalCoin.git pascal_src
+;fi
 
+RUN if [ ${SPHERE10} = false ]; then \
+    git clone https://github.com/PascalCoin/PascalCoin.git pascal_src
+;fi
+
+WORKDIR /home/pascal/pascal_src/src
 RUN git checkout ${PASCAL_CHECKOUT}
 
 # compile it and copy the build
@@ -61,8 +68,8 @@ RUN mkdir /home/pascal/PascalCoin_TESTNET
 
 USER root
 
-COPY pascalcoin_daemon.ini /home/pascal/pascalcoin_bin/pascalcoin_daemon.ini
-RUN chown pascal:pascal /home/pascal/pascalcoin_bin/pascalcoin_daemon.ini
+#COPY pascalcoin_daemon.ini /home/pascal/pascalcoin_bin/pascalcoin_daemon.ini
+#RUN chown pascal:pascal /home/pascal/pascalcoin_bin/pascalcoin_daemon.ini
 
 USER pascal
 
